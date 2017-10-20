@@ -23,7 +23,6 @@ import com.walmartlabs.electrode.reactnative.bridge.RequestHandlerProcessor;
 import com.walmartlabs.electrode.reactnative.bridge.RequestProcessor;
 import java.util.*;
 import com.ernpetstore.ern.model.Order;
-import java.util.Map;
 
 
 final class StoreRequests implements StoreApi.Requests {
@@ -33,11 +32,6 @@ final class StoreRequests implements StoreApi.Requests {
     @Override
     public void registerDeleteOrderRequestHandler(@NonNull final ElectrodeBridgeRequestHandler<String, None> handler) {
         new RequestHandlerProcessor<>(REQUEST_DELETE_ORDER, String.class, None.class, handler).execute();
-    }
-
-    @Override
-    public void registerGetInventoryRequestHandler(@NonNull final ElectrodeBridgeRequestHandler<None, Map<String, Integer>> handler) {
-        new RequestHandlerProcessor<>(REQUEST_GET_INVENTORY, None.class, Map<String, Integer>.class, handler).execute();
     }
 
     @Override
@@ -55,10 +49,6 @@ final class StoreRequests implements StoreApi.Requests {
     @Override
     public void deleteOrder(String orderId,@NonNull final ElectrodeBridgeResponseListener<None> responseListener) {
         new RequestProcessor<>(REQUEST_DELETE_ORDER,  orderId, None.class, responseListener).execute();
-    }
-    @Override
-    public void getInventory(@NonNull final ElectrodeBridgeResponseListener<Map<String, Integer>> responseListener) {
-        new RequestProcessor<>(REQUEST_GET_INVENTORY, null, Map<String, Integer>.class, responseListener).execute();
     }
     @Override
     public void getOrderById(String orderId,@NonNull final ElectrodeBridgeResponseListener<Order> responseListener) {

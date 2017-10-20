@@ -17,13 +17,6 @@ export default class StoreRequests {
          * Registers a handler for a particular api.  This allows javascript to handle a request from native.
          * @param The handler function, taking a single parameter being the data of the request and returning a Promise. Implementer of the handler should either resolve the promise with an object being the response data (if any) or reject the promise with an Error
          */
-    registerGetInventoryRequestHandler( handler : Function): Promise<any> {
-        this._bridge.registerRequestHandler("com.ernpetstore.ern.api.request.getInventory", handler);
-    }
-        /**
-         * Registers a handler for a particular api.  This allows javascript to handle a request from native.
-         * @param The handler function, taking a single parameter being the data of the request and returning a Promise. Implementer of the handler should either resolve the promise with an object being the response data (if any) or reject the promise with an Error
-         */
     registerGetOrderByIdRequestHandler( handler : Function): Promise<any> {
         this._bridge.registerRequestHandler("com.ernpetstore.ern.api.request.getOrderById", handler);
     }
@@ -48,18 +41,6 @@ export default class StoreRequests {
 
      deleteOrder(orderId: string,timeout: number): Promise<any> {
                 return this._bridge.sendRequest("com.ernpetstore.ern.api.request.deleteOrder", { data:orderId, timeout });
-
-    }
-
-    /**
-      * Returns pet inventories by status
-      * Returns a map of status codes to quantities
-      * @param integer timeout in milliseconds
-      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object.<String, {String: Integer}> }
-      */
-
-     getInventory(timeout: number): Promise<any> {
-            return this._bridge.sendRequest("com.ernpetstore.ern.api.request.getInventory", {timeout});
 
     }
 

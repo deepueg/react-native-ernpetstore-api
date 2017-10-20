@@ -2,8 +2,6 @@ public class StoreAPI: NSObject  {
 
     static let kRequestDeleteOrder = "com.ernpetstore.ern.api.request.deleteOrder";
 
-    static let kRequestGetInventory = "com.ernpetstore.ern.api.request.getInventory";
-
     static let kRequestGetOrderById = "com.ernpetstore.ern.api.request.getOrderById";
 
     static let kRequestPlaceOrder = "com.ernpetstore.ern.api.request.placeOrder";
@@ -20,10 +18,6 @@ public class StoreAPIRequests: NSObject {
         assertionFailure("should override")
     }
 
-    public func registerGetInventoryRequestHandler(handler: @escaping ElectrodeBridgeRequestCompletionHandler) {
-        assertionFailure("should override")
-    }
-
     public func registerGetOrderByIdRequestHandler(handler: @escaping ElectrodeBridgeRequestCompletionHandler) {
         assertionFailure("should override")
     }
@@ -33,10 +27,6 @@ public class StoreAPIRequests: NSObject {
     }
 
     public func deleteOrder(orderId: String, responseCompletionHandler: @escaping ElectrodeBridgeResponseCompletionHandler) {
-        assertionFailure("should override")
-    }
-
-    public func getInventory(responseCompletionHandler: @escaping ElectrodeBridgeResponseCompletionHandler) {
         assertionFailure("should override")
     }
 

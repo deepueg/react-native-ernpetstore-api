@@ -35,17 +35,6 @@ describe('StoreApi', function(){
       });
     });
 
-    describe('getInventory', function() {
-      it('should send request getInventory successfully', ()=> {
-        //uncomment below and update the code to test getInventory
-        //return requests.getInventory().then(response=> {
-        //  if (error) throw error;
-        //  expect(response).to.be();
-        //});
-
-      });
-    });
-
     describe('getOrderById', function() {
       it('should send request getOrderById successfully', ()=> {
         //uncomment below and update the code to test getOrderById

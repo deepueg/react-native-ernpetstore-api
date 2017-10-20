@@ -123,7 +123,7 @@ public class CreateUsersWithArrayInputData implements Parcelable, Bridgeable {
         private String testParam;
         private List<Integer> testIntArray;
 
-        public Builder(@NonNull List&lt;User&gt; body) {
+        public Builder(@NonNull List<User> body) {
             this.body = body;
         }
 

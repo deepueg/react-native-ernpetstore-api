@@ -24,7 +24,6 @@ import java.util.*;
 import java.util.UUID;
 
 import com.ernpetstore.ern.model.Order;
-import java.util.Map;
 
 public final class StoreApi {
     private static final Requests REQUESTS;
@@ -45,22 +44,17 @@ public final class StoreApi {
 
     public interface Requests {
         String REQUEST_DELETE_ORDER = "com.ernpetstore.ern.api.request.deleteOrder";
-        String REQUEST_GET_INVENTORY = "com.ernpetstore.ern.api.request.getInventory";
         String REQUEST_GET_ORDER_BY_ID = "com.ernpetstore.ern.api.request.getOrderById";
         String REQUEST_PLACE_ORDER = "com.ernpetstore.ern.api.request.placeOrder";
 
 
         void registerDeleteOrderRequestHandler(@NonNull final ElectrodeBridgeRequestHandler<String, None> handler);
 
-        void registerGetInventoryRequestHandler(@NonNull final ElectrodeBridgeRequestHandler<None, Map<String, Integer>> handler);
-
         void registerGetOrderByIdRequestHandler(@NonNull final ElectrodeBridgeRequestHandler<String, Order> handler);
 
         void registerPlaceOrderRequestHandler(@NonNull final ElectrodeBridgeRequestHandler<Order, Order> handler);
 
         void deleteOrder(String orderId, @NonNull final ElectrodeBridgeResponseListener<None> responseListener);
-
-        void getInventory(@NonNull final ElectrodeBridgeResponseListener<Map<String, Integer>> responseListener);
 
         void getOrderById(String orderId, @NonNull final ElectrodeBridgeResponseListener<Order> responseListener);
 

@@ -9,14 +9,6 @@ public class StoreRequests: StoreAPIRequests {
         requestHandlerProcessor.execute()
     }
 
-    public override func registerGetInventoryRequestHandler(handler:  @escaping ElectrodeBridgeRequestCompletionHandler) {
-        let requestHandlerProcessor = ElectrodeRequestHandlerProcessor(requestName: StoreAPI.kRequestGetInventory,
-    reqClass: None.self, 
-    respClass: [String:Int].self,
-    requestCompletionHandler: handler)
-        requestHandlerProcessor.execute()
-    }
-
     public override func registerGetOrderByIdRequestHandler(handler:  @escaping ElectrodeBridgeRequestCompletionHandler) {
         let requestHandlerProcessor = ElectrodeRequestHandlerProcessor(requestName: StoreAPI.kRequestGetOrderById,
     reqClass: String.self, 
@@ -41,17 +33,6 @@ public class StoreRequests: StoreAPIRequests {
             requestName: StoreAPI.kRequestDeleteOrder,
             requestPayload: orderId,
             respClass: None.self,
-            responseItemType: nil,
-            responseCompletionHandler: responseCompletionHandler)
-
-        requestProcessor.execute()
-    }
-
-    public override func getInventory( responseCompletionHandler: @escaping ElectrodeBridgeResponseCompletionHandler) {
-        let requestProcessor = ElectrodeRequestProcessor<None, [String:Int], Any>(
-            requestName: StoreAPI.kRequestGetInventory,
-            requestPayload: nil, 
-            respClass: [String:Int].self,
             responseItemType: nil,
             responseCompletionHandler: responseCompletionHandler)
 
