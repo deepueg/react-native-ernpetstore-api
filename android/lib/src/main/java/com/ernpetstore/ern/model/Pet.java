@@ -152,7 +152,7 @@ public class Pet implements Parcelable, Bridgeable {
         private List<Tag> tags;
         private String status;
 
-        public Builder(@NonNull String name, @NonNull List&lt;String&gt; photoUrls) {
+        public Builder(@NonNull String name, @NonNull List<String> photoUrls) {
             this.name = name;
             this.photoUrls = photoUrls;
         }
