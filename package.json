@@ -1,6 +1,6 @@
 {
   "name": "react-native-ernpetstore-api",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "ERN Generated API for ernpetstore",
   "main": "javascript/src/index.js",
   "author": "d0g00g4",
