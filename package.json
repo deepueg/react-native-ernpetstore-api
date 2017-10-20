@@ -1,0 +1,28 @@
+{
+  "name": "react-native-ernpetstore-api",
+  "version": "0.0.1",
+  "description": "ERN Generated API for ernpetstore",
+  "main": "javascript/src/index.js",
+  "author": "d0g00g4",
+  "scripts": {
+    "flow": "flow"
+  },
+  "devDependencies": {
+    "flow-bin": "^0.47.0"
+  },
+  "dependencies": {
+    "react-native-electrode-bridge": "1.5.x"
+  },
+  "ern": {
+    "message": {
+      "apiName": "ernpetstore",
+      "namespace": "com.ernpetstore.ern",
+      "apiSchemaPath": "schema.json",
+      "artifactId": "react-native-ernpetstore-api"
+    },
+    "moduleType": "ern-api"
+  },
+  "keywords": [
+    "ern-api"
+  ]
+}
