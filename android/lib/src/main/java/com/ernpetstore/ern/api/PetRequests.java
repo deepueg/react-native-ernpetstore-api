@@ -50,6 +50,11 @@ final class PetRequests implements PetApi.Requests {
     }
 
     @Override
+    public void registerFindPetsByTypeRequestHandler(@NonNull final ElectrodeBridgeRequestHandler<List<String>, List<Pet>> handler) {
+        new RequestHandlerProcessor<>(REQUEST_FIND_PETS_BY_TYPE, (Class) String.class, (Class) Pet.class, handler).execute();
+    }
+
+    @Override
     public void registerGetPetByIdRequestHandler(@NonNull final ElectrodeBridgeRequestHandler<Long, Pet> handler) {
         new RequestHandlerProcessor<>(REQUEST_GET_PET_BY_ID, Long.class, Pet.class, handler).execute();
     }
@@ -86,6 +91,10 @@ final class PetRequests implements PetApi.Requests {
     @Override
     public void findPetsByTags(List<String> tags,@NonNull final ElectrodeBridgeResponseListener<List<Pet>> responseListener) {
         new RequestProcessor<>(REQUEST_FIND_PETS_BY_TAGS,  tags, (Class) List.class, Pet.class, responseListener).execute();
+    }
+    @Override
+    public void findPetsByType(List<String> name,@NonNull final ElectrodeBridgeResponseListener<List<Pet>> responseListener) {
+        new RequestProcessor<>(REQUEST_FIND_PETS_BY_TYPE,  name, (Class) List.class, Pet.class, responseListener).execute();
     }
     @Override
     public void getPetById(Long petId,@NonNull final ElectrodeBridgeResponseListener<Pet> responseListener) {

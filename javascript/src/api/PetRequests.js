@@ -38,6 +38,13 @@ export default class PetRequests {
          * Registers a handler for a particular api.  This allows javascript to handle a request from native.
          * @param The handler function, taking a single parameter being the data of the request and returning a Promise. Implementer of the handler should either resolve the promise with an object being the response data (if any) or reject the promise with an Error
          */
+    registerFindPetsByTypeRequestHandler( handler : Function): Promise<any> {
+        this._bridge.registerRequestHandler("com.ernpetstore.ern.api.request.findPetsByType", handler);
+    }
+        /**
+         * Registers a handler for a particular api.  This allows javascript to handle a request from native.
+         * @param The handler function, taking a single parameter being the data of the request and returning a Promise. Implementer of the handler should either resolve the promise with an object being the response data (if any) or reject the promise with an Error
+         */
     registerGetPetByIdRequestHandler( handler : Function): Promise<any> {
         this._bridge.registerRequestHandler("com.ernpetstore.ern.api.request.getPetById", handler);
     }
@@ -125,6 +132,20 @@ export default class PetRequests {
 
      findPetsByTags(opts: any,timeout: number): Promise<any> {
                 return this._bridge.sendRequest("com.ernpetstore.ern.api.request.findPetsByTags", { data:opts, timeout });
+
+    }
+
+    /**
+      * Finds Pets by type
+      * Multiple type values can be provided with comma seperated strings
+      * @param {Object} opts Optional parameters
+      * @param  opts.name Type values that need to be considered for filter (default to available)
+      * @param integer timeout in milliseconds
+      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:com.ernpetstore.ern.model/Pet> }
+      */
+
+     findPetsByType(opts: any,timeout: number): Promise<any> {
+                return this._bridge.sendRequest("com.ernpetstore.ern.api.request.findPetsByType", { data:opts, timeout });
 
     }
 

@@ -168,6 +168,66 @@
         ]
       }
     },
+    "/pet/findByType": {
+      "get": {
+        "tags": [
+          "pet"
+        ],
+        "summary": "Finds Pets by type",
+        "description": "Multiple type values can be provided with comma seperated strings",
+        "operationId": "findPetsByType",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Type values that need to be considered for filter",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": ["available", "pending", "sold"]
+            },
+            "collectionFormat": "multi",
+            "default": "available"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Pet"
+              }
+            },
+            "examples": {
+              "application/json": {
+                "name": "Puma",
+                "type": "Dog",
+                "color": "Black",
+                "gender": "Female",
+                "breed": "Mixed"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
     "/pet/findByTags": {
       "get": {
         "tags": [

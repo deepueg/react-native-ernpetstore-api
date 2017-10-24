@@ -63,6 +63,7 @@ public final class PetApi {
         String REQUEST_DELETE_PET = "com.ernpetstore.ern.api.request.deletePet";
         String REQUEST_FIND_PETS_BY_STATUS = "com.ernpetstore.ern.api.request.findPetsByStatus";
         String REQUEST_FIND_PETS_BY_TAGS = "com.ernpetstore.ern.api.request.findPetsByTags";
+        String REQUEST_FIND_PETS_BY_TYPE = "com.ernpetstore.ern.api.request.findPetsByType";
         String REQUEST_GET_PET_BY_ID = "com.ernpetstore.ern.api.request.getPetById";
         String REQUEST_UPDATE_PET = "com.ernpetstore.ern.api.request.updatePet";
         String REQUEST_UPDATE_PET_WITH_FORM = "com.ernpetstore.ern.api.request.updatePetWithForm";
@@ -76,6 +77,8 @@ public final class PetApi {
         void registerFindPetsByStatusRequestHandler(@NonNull final ElectrodeBridgeRequestHandler<List<String>, List<Pet>> handler);
 
         void registerFindPetsByTagsRequestHandler(@NonNull final ElectrodeBridgeRequestHandler<List<String>, List<Pet>> handler);
+
+        void registerFindPetsByTypeRequestHandler(@NonNull final ElectrodeBridgeRequestHandler<List<String>, List<Pet>> handler);
 
         void registerGetPetByIdRequestHandler(@NonNull final ElectrodeBridgeRequestHandler<Long, Pet> handler);
 
@@ -92,6 +95,8 @@ public final class PetApi {
         void findPetsByStatus(List<String> status, @NonNull final ElectrodeBridgeResponseListener<List<Pet>> responseListener);
 
         void findPetsByTags(List<String> tags, @NonNull final ElectrodeBridgeResponseListener<List<Pet>> responseListener);
+
+        void findPetsByType(List<String> name, @NonNull final ElectrodeBridgeResponseListener<List<Pet>> responseListener);
 
         void getPetById(Long petId, @NonNull final ElectrodeBridgeResponseListener<Pet> responseListener);
 

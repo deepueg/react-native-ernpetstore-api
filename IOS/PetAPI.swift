@@ -8,6 +8,8 @@ public class PetAPI: NSObject  {
 
     static let kRequestFindPetsByTags = "com.ernpetstore.ern.api.request.findPetsByTags";
 
+    static let kRequestFindPetsByType = "com.ernpetstore.ern.api.request.findPetsByType";
+
     static let kRequestGetPetById = "com.ernpetstore.ern.api.request.getPetById";
     static let kEventImageUploaded = "com.ernpetstore.ern.api.event.imageUploaded";
 
@@ -56,6 +58,10 @@ public class PetAPIRequests: NSObject {
         assertionFailure("should override")
     }
 
+    public func registerFindPetsByTypeRequestHandler(handler: @escaping ElectrodeBridgeRequestCompletionHandler) {
+        assertionFailure("should override")
+    }
+
     public func registerGetPetByIdRequestHandler(handler: @escaping ElectrodeBridgeRequestCompletionHandler) {
         assertionFailure("should override")
     }
@@ -85,6 +91,10 @@ public class PetAPIRequests: NSObject {
     }
 
     public func findPetsByTags(tags: [String], responseCompletionHandler: @escaping ElectrodeBridgeResponseCompletionHandler) {
+        assertionFailure("should override")
+    }
+
+    public func findPetsByType(name: [String], responseCompletionHandler: @escaping ElectrodeBridgeResponseCompletionHandler) {
         assertionFailure("should override")
     }
 

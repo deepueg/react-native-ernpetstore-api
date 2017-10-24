@@ -33,6 +33,14 @@ public class PetRequests: PetAPIRequests {
         requestHandlerProcessor.execute()
     }
 
+    public override func registerFindPetsByTypeRequestHandler(handler:  @escaping ElectrodeBridgeRequestCompletionHandler) {
+        let requestHandlerProcessor = ElectrodeRequestHandlerProcessor(requestName: PetAPI.kRequestFindPetsByType,
+    reqClass: Array<Any>.self, reqItemType: String.self,
+    respClass: [Pet].self,
+    requestCompletionHandler: handler)
+        requestHandlerProcessor.execute()
+    }
+
     public override func registerGetPetByIdRequestHandler(handler:  @escaping ElectrodeBridgeRequestCompletionHandler) {
         let requestHandlerProcessor = ElectrodeRequestHandlerProcessor(requestName: PetAPI.kRequestGetPetById,
     reqClass: Int64.self, 
@@ -105,6 +113,17 @@ public class PetRequests: PetAPIRequests {
         let requestProcessor = ElectrodeRequestProcessor<[String], [Pet], Any>(
             requestName: PetAPI.kRequestFindPetsByTags,
             requestPayload: tags,
+            respClass: [Pet].self,
+            responseItemType: Pet.self,
+            responseCompletionHandler: responseCompletionHandler)
+
+        requestProcessor.execute()
+    }
+
+    public override func findPetsByType(name: [String], responseCompletionHandler: @escaping ElectrodeBridgeResponseCompletionHandler) {
+        let requestProcessor = ElectrodeRequestProcessor<[String], [Pet], Any>(
+            requestName: PetAPI.kRequestFindPetsByType,
+            requestPayload: name,
             respClass: [Pet].self,
             responseItemType: Pet.self,
             responseCompletionHandler: responseCompletionHandler)

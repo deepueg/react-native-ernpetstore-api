@@ -76,6 +76,17 @@ describe('PetApi', function(){
       });
     });
 
+    describe('findPetsByType', function() {
+      it('should send request findPetsByType successfully', ()=> {
+        //uncomment below and update the code to test findPetsByType
+        //return requests.findPetsByType(opts: any).then(response=> {
+        //  if (error) throw error;
+        //  expect(response).to.be();
+        //});
+
+      });
+    });
+
     describe('getPetById', function() {
       it('should send request getPetById successfully', ()=> {
         //uncomment below and update the code to test getPetById
